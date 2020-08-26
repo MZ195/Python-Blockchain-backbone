@@ -5,8 +5,8 @@ from paste.translogger import TransLogger
 from flask import Flask, Blueprint
 from flask_cors import CORS
 
-from ES_API.API.search.endpoints.Test import ns as caps_namespace
-from ES_API.API.restplus import blockchain_api
+from routes.api.endpoints.Blockchain import ns as caps_namespace
+from routes.restplus import blockchain_api
 
 import settings
 
@@ -18,7 +18,6 @@ log = logging.getLogger(__name__)
 def configure_app(flask_app):
     flask_app.config['SWAGGER_UI_DOC_EXPANSION'] = settings.RESTPLUS_SWAGGER_UI_DOC_EXPANSION
     flask_app.debug = settings.FLASK_DEBUG
-
 
 def initialize_app(flask_app):
     configure_app(flask_app)
@@ -53,7 +52,7 @@ def run_server():
 
 def main():
     initialize_app(app)
-    log.info('>>>>> Starting development server at http://{}:{}/api/ <<<<<'.format(settings.SERVER_NAME,
+    print('>>>>> Starting development server at http://{}:{}/api/ <<<<<'.format(settings.SERVER_NAME,
                                                                                    settings.SERVER_PORT))
     run_server()
 

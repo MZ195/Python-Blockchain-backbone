@@ -2,7 +2,7 @@ import socket
 
 # Server settings
 SERVER_NAME = socket.gethostname()
-SERVER_PORT = 9090
+SERVER_PORT = 8899
 ENGINE_AUTO_RELOAD = True
 LOG_SCREEN = True
 
