@@ -9,6 +9,7 @@ from routes.api.endpoints.Blockchain import ns as caps_namespace
 from routes.restplus import blockchain_api
 
 import settings
+from modules import Blockchain
 
 app = Flask(__name__)
 CORS(app)
