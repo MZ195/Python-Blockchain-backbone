@@ -45,7 +45,8 @@ class Blockchain(object):
 
     def addTransactionToPendingTransactions(self, transactionObj):
         self.pendingTransactions.append(transactionObj)
-        return self.getLastBlock['index'] + 1
+        result = self.getLastBlock['index'] + 1
+        return result
 
     def hashBlock(self, previousBlockHash, currentBlockData, nonce):
         dataAsString = previousBlockHash + json.stringify(currentBlockData) + nonce.toString()
@@ -73,7 +74,7 @@ class Blockchain(object):
         for i in range(len(blockchain)):
             currentBlock = blockchain[i]
             previousBlock = blockchain[i - 1]
-            blockHash = self.hashBlock(previousBlock['hash'], {transactions: currentBlock['transactions'], index: currentBlock['index']}, currentBlock['nonce'])
+            blockHash = self.hashBlock(previousBlock['hash'], {"transactions": currentBlock['transactions'], "index": currentBlock['index']}, currentBlock['nonce'])
             
             # hashing every block and make sure it starts with 4 0s
             if(blockHash.substring(0, 4) != '0000'):
